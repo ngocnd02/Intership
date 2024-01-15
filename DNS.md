@@ -1,27 +1,42 @@
 # TÌM HIỂU VỀ DNS SERVER
 ## Mục Lục
 [DNS](#dns)
-- [DNS là gì?](#dnslagi)
-- [DNS hoạt động như thế nào?](#dnshoatdongthenao)
-- [Có 4 DNS server liên quan đến việc tải một trang web](#4dnsserver)
-- [Sự khác biệt giữa authoritative DNS server và recursive DNS resolver](#sukhacbiet)
-	- [Recursive DNS resolver (Trình phân giải DNS đệ quy)](#trinhphangia)
-	- [Authoritative DNS server (Máy chủ DNS ủy quyền)](#maychudnsuyquen)
-- [8 bước tra cứu DNS](#8buoctracuudns)
-- [DNS Resolver](#dnsresolver)
-- [Các loại truy vấn DNS](#cacloaitruyvandns)
 
-[DNS server](#dnsserver)
+[DNS là gì](#dns-la-gi)
 
-[DNS record](#dnsrecord)
+[DNS hoạt động như thế nào](#dns-hoat-dong-nhu-the-nao)
 
-- [Các loại bản ghi DNS phổ biến](#cacloaibanghidns)
-- [DNS A Record](#dnsarecord)
-- [DNS CNAME Record](#dnscnamerecord)
-- [DNS MX Record](#dnsrecord)
-- [DNS TXT Record](#dnstxtrecord)
-- [DNS NS Record](#dnsnsrecord)
-- [DNS SOA Record](#dnssoarecord)
+[Có 4 DNS server liên quan đến việc tải một trang web](#co-4-dns-server-lien-quan-den-viec-tai-mot-trang-web)
+
+[Sự khác biệt giữa authoritative DNS server và recursive DNS resolver](#su-khac-biet-giua-authoritative-dns-server-va-recursive-dns-resolver)
+
+ - [Recursive DNS resolver](#recursive-dns-resolver)
+ - [Authoritative DNS server](#authoritative-dns-server)
+
+[Tám bước tra cứu DNS](#tam-buoc-tra-cuu-dns)
+
+[DNS Resolver](#dns-resolver)
+
+[Các loại truy vấn DNS](#cac-loai-truy-van-dns)
+
+[DNS server](#dns-server)
+
+[DNS record](#dns-record)
+
+[Các loại bản ghi DNS phổ biến](#cac-loai-ban-ghi-dns-pho-bien)
+
+[DNS A Record](#dns-a-record)
+
+[DNS CNAME Record](#dns-cname-record)
+
+[DNS MX Record](#dns-record)
+
+[DNS TXT Record](#dns-txt-record)
+
+[DNS NS Record](#dns-ns-record)
+
+[DNS SOA Record](#dns-soa-record)
+
 
 
 # DNS
@@ -42,15 +57,15 @@
 - **Authoritative Nameserver** - Máy chủ cuối cùng này có thể được coi như một từ điển trên một kệ sách, trong đó một tên cụ thể có thể được dịch thành định nghĩa của nó. Máy chủ ủy quyền là điểm dừng cuối cùng trong truy vấn máy chủ DNS. Nếu máy chủ tên uy quyền có quyền truy cập vào bản ghi được yêu cầu, nó sẽ trả lại địa chỉ IP cho tên máy chủ được yêu cầu trở lại cho DNS Recursor (người thư viện) đã thực hiện yêu cầu ban đầu.
 
 ## Sự khác biệt giữa authoritative DNS server và recursive DNS resolver
-### Recursive DNS resolver (Trình phân giải DNS đệ quy)
+### Recursive DNS resolver
 - Máy tính phản hồi một yêu cầu đệ quy từ một máy khách và dành thời gian để theo dõi bản ghi DNS. Điều này được thực hiện thông qua việc thực hiện một loạt các yêu cầu cho đến khi nó đạt được máy chủ DNS ủy quyền cho bản ghi được yêu cầu (hoặc hết thời gian hoặc trả lại một lỗi nếu không tìm thấy bản ghi). Bộ giải quyết DNS đệ quy không luôn cần phải thực hiện nhiều yêu cầu để theo dõi các bản ghi cần thiết để phản hồi cho một máy khách; caching là một quy trình duy trì dữ liệu giúp rút ngắn các yêu cầu cần thiết bằng cách phục vụ bản ghi tài nguyên được yêu cầu trước đó trong quá trình tra cứu DNS.
 
 ![Imgur](https://i.imgur.com/s5bgc5D.png)
 
-### Authoritative DNS server (Máy chủ DNS ủy quyền)
+### Authoritative DNS server
 - Một máy chủ DNS ủy quyền là một máy chủ thực sự giữ và chịu trách nhiệm về các bản ghi tài nguyên DNS. Đây là máy chủ ở dưới cùng của chuỗi tra cứu DNS sẽ phản hồi với bản ghi tài nguyên được truy vấn, cuối cùng cho phép trình duyệt web đang thực hiện yêu cầu đạt được địa chỉ IP cần thiết để truy cập một trang web hoặc các nguồn web khác. Một máy chủ DNS ủy quyền có thể đáp ứng các truy vấn từ dữ liệu của mình mà không cần truy vấn nguồn khác, vì nó là nguồn thông tin chính xác cuối cùng cho một số bản ghi DNS cụ thể.
 
-## 8 bước tra cứu DNS
+## Tám bước tra cứu DNS
 
 1. Một người dùng nhập 'example.com' vào trình duyệt web và truy vấn đi vào Internet, được nhận bởi một bộ giải quyết DNS đệ quy.
 
